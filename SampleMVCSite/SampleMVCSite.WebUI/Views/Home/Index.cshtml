@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1>DVD Shop</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis luctus velit. Praesent vestibulum rutrum sapien. Duis odio sem, volutpat ut nisl at, feugiat suscipit est. Nulla tempor tristique orci a dignissim. Quisque at augue sit amet dolor tempor feugiat sit amet eu orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut lacinia dolor in pellentesque facilisis. Quisque eu lectus auctor, viverra nisi quis, mattis leo. Donec lobortis lectus non dapibus maximus. </p>
+
+    <div id="slideshow" class="hidden-sm hidden-xs">
+        <div id="carousel-featured" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="col-sm-4">
+                        <img src="@Url.Content("~/Content/img/africa.jpg")" height="200px" />
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="@Url.Content("~/Content/img/arctic.jpg")" height="200px" />
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="@Url.Content("~/Content/img/space_station.jpg")" height="200px" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="col-sm-4">
+                        <img src="@Url.Content("~/Content/img/triple_features.jpg")" height="200px" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="left carousel-control" href="#carousel-featured" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-featured" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="hidden-sm hidden-xs">
+            <img src="@Url.Content("~/Content/img/products.jpg")" height="200px">
+        </div>
+        <h2>Products</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices odio condimentum nisi feugiat, hendrerit ornare lacus eleifend. Etiam ultrices, lacus eget placerat bibendum, dolor mauris ullamcorper velit, eu malesuada est eros eget est. Praesent mattis velit quis purus bibendum faucibus. Suspendisse neque tortor, tincidunt eu augue sit amet, rutrum semper tortor. Ut consectetur lacus ante, vitae convallis dolor molestie non. Phasellus dapibus quis erat vitae luctus. Proin iaculis, elit at eleifend semper, turpis quam vestibulum erat, eget ornare ligula libero ac nibh. Vivamus id luctus eros. Quisque eu libero lectus. Donec ligula nisi, tincidunt a augue sit amet, tristique hendrerit mauris. Vivamus facilisis euismod enim sed mattis. Ut ac tincidunt sem. Vivamus non ante sed sapien venenatis ullamcorper eget sit amet arcu. Maecenas vehicula dui mi, at aliquam nisi posuere sollicitudin. </p>
+        <p><a class="btn btn-primary" href='@Url.Action("Index", "Products")'>Check our products &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <div class="hidden-sm hidden-xs">
+            <img src="@Url.Content("~/Content/img/orders.jpg")" height="200px">
+        </div>
+        <h2>Orders</h2>
+        <p>Morbi vehicula faucibus mauris, quis sollicitudin lorem varius non. Suspendisse ac mollis sapien. Nam efficitur nibh accumsan, suscipit leo vitae, imperdiet sapien. Maecenas euismod congue lobortis. In quis augue nisi. Mauris eget nulla tellus. Donec eu purus luctus, faucibus massa vitae, porttitor lectus. Praesent eget tellus rhoncus, accumsan diam nec, ornare enim. </p>
+        <p><a class="btn btn-primary" href='@Url.Action("Index", "Orders")'>Check your orders &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <div class="hidden-sm hidden-xs">
+            <img src="@Url.Content("~/Content/img/customers.png")" height="200px">
+        </div>
+        <h2>Customers</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tristique enim. Nullam sagittis ipsum in felis maximus, at venenatis augue volutpat. Morbi viverra dictum lacus id commodo. Mauris sollicitudin congue sapien, sed imperdiet nisi interdum ut. Sed in feugiat arcu. Suspendisse id nunc vel ante finibus molestie vitae non ante. Integer pellentesque metus ligula, eget ullamcorper mi hendrerit sed. Praesent luctus justo metus, vel pharetra nisi viverra quis. Phasellus nec diam eget ex facilisis imperdiet dapibus vel massa. Vestibulum laoreet felis nec dolor luctus, ut facilisis arcu fringilla. Nulla eget bibendum neque. In non sodales quam. Mauris feugiat blandit nulla. </p>
+        <p><a class="btn btn-primary" href='@Url.Action("Index", "Customers")'>Modify your information &raquo;</a></p>
+    </div>
+</div>

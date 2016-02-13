@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SampleMVCSite.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+
+<section class="container">
+    <h2>Products</h2>
+
+    <p>
+        <a class="btn btn-primary" href='@Url.Action("create", "Products")'>Add New Products</a>
+    </p>
+
+@foreach (var item in Model)
+{
+    <article class="product-list">
+        <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+        <div class="row">
+            <div class="hidden-xs col-xs-3">
+                <img src=@Html.DisplayFor(modelItem => item.ImageUrl) width="80%" />
+            </div>
+            <div class="col-xs-9">
+                <p class="description">@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(modelItem => item.Description)</p>
+                <p class="actors">@Html.DisplayNameFor(model => model.Actors): @Html.DisplayFor(modelItem => item.Actors)</p>
+                <p class="date">@Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(modelItem => item.Date)</p>
+                <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</p>
+                <p>
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                </p>
+                <p>
+                    <a class="btn btn-info" href='@Url.Action("Details", "Products", new { id = item.ProductId })'>Details</a>
+                    <a class="btn btn-warning" href='@Url.Action("Edit", "Products" , new { id=item.ProductId })'>Edit</a>
+                    <a class="btn btn-danger" href='@Url.Action("Delete", "Products" , new { id=item.ProductId })'>Delete</a>
+                </p>
+            </div>
+        </div>
+    </article>
+}
+</section>
+
+
+
+
+

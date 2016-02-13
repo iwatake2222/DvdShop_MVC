@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SampleMVCSite.Models.Order>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<section class="container">
+    <h2>Orders</h2>
+    <p>
+        <a class="btn btn-primary" href='@Url.Action("CreateOrder", "Orders")'>Add New Order</a>
+    </p>
+@foreach (var order in Model) {
+    { ViewBag.Total = 0; }
+    <article class="order-list">
+        <h3>@Html.DisplayNameFor(model => model.OrderId): @Html.DisplayFor(modelItem => order.OrderId)</h3>
+        <p class="date">@Html.DisplayNameFor(model => model.OrderDate): @Html.DisplayFor(modelItem => order.OrderDate)</p>
+        <p>@Html.DisplayNameFor(model => model.CustomerId): @Html.DisplayFor(modelItem => order.CustomerId)  (<a href='@Url.Action("Details", "Customers", new { id = order.CustomerId })'>Details</a>)</p>
+        <p>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(modelItem => order.Status)</p>
+        <p>
+            <a class="btn btn-info" href='@Url.Action("DetailsOrder", "Orders", new { id = order.OrderId })'>Details</a>
+            <a class="btn btn-warning" href='@Url.Action("EditOrder", "Orders", new { id = order.OrderId })'>Edit</a>
+            <a class="btn btn-danger" href='@Url.Action("DeleteOrder", "Orders", new { id = order.OrderId })'>Delete</a>
+        </p>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>PRODUCT ID</th>
+                    <th>UNIT PRICE</th>
+                    <th>QTY</th>
+                    <th>SUB TOTAL</th>
+                    <th>Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+    @foreach (var orderItem in ViewBag.OrderItems) {
+        if (order.OrderId != orderItem.OrderId) { continue; }
+        { ViewBag.SubTotal = orderItem.UnitPrice * orderItem.Quantity; }
+                <tr class="active">
+                    <td>@orderItem.ProductId (<a href='@Url.Action("Details", "Products", new { id = orderItem.ProductId })'>Details</a>)</td>
+                    <td>$@orderItem.UnitPrice</td>
+                    <td>@orderItem.Quantity</td>
+                    <td>$@ViewBag.SubTotal</td>
+                    <td>
+                        <a class="btn btn-info" href='@Url.Action("DetailsOrderItem", "Orders", new { id = orderItem.OrderItemId })'>Details</a>
+                        <a class="btn btn-warning" href='@Url.Action("EditOrderItem", "Orders", new { id = orderItem.OrderItemId })'>Edit</a>
+                        <a class="btn btn-danger" href='@Url.Action("DeleteOrderItem", "Orders", new { id = orderItem.OrderItemId })'>Delete</a>
+                    </td>
+                </tr>
+        { ViewBag.Total += ViewBag.SubTotal; }
+    }
+                <tr class="active">
+                    <td colspan="4"></td>
+                    <td><a class="btn btn-primary" href='@Url.Action("CreateOrderItem", "Orders", new { orderId = order.OrderId })'>Add New Order Item</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="success">
+                    <th colspan="3">TOTAL PAYMENT</th>
+                    <td>$@ViewBag.Total</td>
+                </tr>
+            </tfoot>
+        </table>
+    </article>
+}
+</section>
